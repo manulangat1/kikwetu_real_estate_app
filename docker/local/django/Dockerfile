@@ -39,9 +39,9 @@ COPY . $APP_HOME
 
 RUN pip3 install -r $APP_HOME/requirements.txt 
 
-# COPY ./docker/local/django/entrypoint /entrypoint
-# RUN sed -i 's/\r$//g' /entrypoint
-# RUN chmod +x /entrypoint
+COPY ./docker/local/django/entrypoint /entrypoint
+RUN sed -i 's/\r$//g' /entrypoint
+RUN chmod +x /entrypoint
 
 COPY ./docker/local/django/start /start
 RUN sed -i 's/\r$//g' /start

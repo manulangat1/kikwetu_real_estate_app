@@ -25,7 +25,7 @@ down-v:
 test:
 	docker-compose exec api pytest no:warnings --cov=.
 test-html:
-	docker compose exec api pytest no:warnings --cov=. --cov-report=html --cov-report=termninal
+	docker compose exec api pytest no:warnings --cov=. --cov-report=html 
 flake8:
 	docker compose exec api flake8 . 
 black-check:
