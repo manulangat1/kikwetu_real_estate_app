@@ -28,6 +28,9 @@ pipeline{
             // when { 
             //     BRANCH_NAME == 'master'  
             // }
+            when { 
+                BRANCH_NAME == 'master'
+            }
             steps { 
                 echo 'I am deploying to prod server'
             
