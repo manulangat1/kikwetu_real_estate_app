@@ -29,7 +29,8 @@ pipeline{
                 BRANCH_NAME == 'master'  && CODE_CHANGES == true
             }
             steps { 
-
+                echo 'I am deploying to prod server'
+            
             }
         }
     }
