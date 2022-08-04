@@ -1,12 +1,16 @@
 pipeline{ 
-    agent none 
-    steps { 
-        stage("Init the application"){
-            echo "Init the application"
-        }
+    agent any 
 
-        stage('DONE'){
-            echo "DONE"
+    stages { 
+        stage('Build') { 
+            steps { 
+                sh 'echo "Hello World"'
+            }
+        }
+        stage('Done'){
+            steps {
+                echo " WOw! I'm done!"
+            }
         }
     }
 }
