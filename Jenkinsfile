@@ -16,18 +16,18 @@ pipeline{
             }
         }
         stage('Deploy staging ') { 
-            when { 
-                BRANCH_NAME == 'staging'
-            }
+            // when { 
+            //     BRANCH_NAME == 'staging'
+            // }
             steps { 
                 echo 'I am deploying to staging server'
             }
         }
 
         stage ( 'Deploy prod') { 
-            when { 
-                BRANCH_NAME == 'master'  
-            }
+            // when { 
+            //     BRANCH_NAME == 'master'  
+            // }
             steps { 
                 echo 'I am deploying to prod server'
             
