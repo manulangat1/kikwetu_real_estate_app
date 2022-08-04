@@ -1,12 +1,25 @@
+def gv 
+
+
 pipeline{ 
     agent any 
     // enviroment {
     //     NEW_VERSION  = '1.3.0'
     // }
     stages { 
+        stage ('Init') { 
+            steps {
+                script { 
+                    gv = load "script.groovy"
+                }
+            }
+        }
         stage('Build') { 
             steps { 
                 sh 'echo "Hello World"'
+                script { 
+                    gv.buildApp()
+                }
             }
         }
         stage('Done'){
