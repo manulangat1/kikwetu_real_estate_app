@@ -25,7 +25,7 @@ pipeline{
         stage('Done'){
             steps {
                 echo " WOw! I'm done!"
-                echo "Building version ${NEW_VERSION}"
+                // echo "Building version ${NEW_VERSION}"
             }
         }
         stage('Deploy staging ') { 
