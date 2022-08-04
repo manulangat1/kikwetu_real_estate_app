@@ -13,4 +13,13 @@ pipeline{
             }
         }
     }
-}
+    post { 
+        success { 
+            echo "I'm always!"
+        }
+
+        failure { 
+            echo "Build failed"
+        }
+    }
+    }
