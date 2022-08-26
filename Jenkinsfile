@@ -5,7 +5,7 @@ pipeline {
             steps { 
                 sh 'echo "Hello World"'
                 script{ 
-                   sh "docker build ./docker/local/django/Dockerfile -t manulangat/django-jenkins-pos:1.0"
+                   sh "docker build -f ./docker/local/django/Dockerfile -t manulangat/django-jenkins-pos:1.0"
                 }
             }
         }
