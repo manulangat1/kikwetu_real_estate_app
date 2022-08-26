@@ -1,12 +1,12 @@
 pipeline { 
     agent any 
-    enviroment{
-        NEW_VERSION = "1.2.34"
-    }
     stages { 
         stage('Build docker image') { 
             steps { 
                 sh 'echo "Hello World"'
+                script{ 
+                   sh "docker build ./docker/local/django/Dockerfile -t manulangat/django-jenkins-pos:1.0"
+                }
             }
         }
         stage('Done'){
@@ -17,14 +17,12 @@ pipeline {
         stage('Deploy staging ') { 
             steps { 
                 echo 'I am deploying to staging server'
-                echo "I am deploying version number ${NEW_VERSION}"
             }
         }
 
         stage ( 'Deploy prod') { 
             steps { 
                 echo 'I am deploying to prod server'
-                echo "I am deploying version number ${NEW_VERSION}"
             
             }
         }
