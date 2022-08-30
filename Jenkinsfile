@@ -9,7 +9,7 @@ pipeline {
         stage('Init') { 
             
             steps { 
-                echo "Building version ${NEW_VERSION}"
+                // echo "Building version ${NEW_VERSION}"
                 echo "Hello, this is build number ${BUILD_NUMBER}"
             }
         }
