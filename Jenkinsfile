@@ -1,30 +1,25 @@
 pipeline { 
     agent any 
     stages { 
-        stage('Build docker image') { 
+        stage('Init') { 
             steps { 
-                sh 'echo "Hello World"'
-                script{ 
-                   sh "docker build -f ./docker/local/django/Dockerfile -t manulangat/django-jenkins-pos:1.0"
-                }
+                echo "Hello, this is build number ${env.BUILD_NUMBER}"
             }
         }
-        stage('Done'){
-            steps {
-                echo " WOw! I'm done!"
-            }
-        }
-        stage('Deploy staging ') { 
-            steps { 
-                echo 'I am deploying to staging server'
-            }
-        }
-
-        stage ( 'Deploy prod') { 
-            steps { 
-                echo 'I am deploying to prod server'
-            
-            }
-        }
+        // stage('Build docker image') { 
+        //     steps { 
+        //         sh 'echo "Hello World"'
+        //         script{ 
+        //         //    
+        //         withCredentials([ 
+        //             usernamePassword(credentials:'docker-hub-credentials', usernameVariable:USER, passwordVariable:PASSWORD)
+        //         ]) { 
+        //             sh "docker build . -t YOUR_IMAGE_NAME"
+        //             sh "echo $PASSORD | docker login -u $USER --password-stdin"
+        //             sh "docker push YOUR_IMAGE_NAME"
+        //         }
+        //         }
+        //     }
+        // }
     }
 }
