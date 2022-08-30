@@ -1,9 +1,13 @@
 pipeline { 
     agent any 
+    enviroment{ 
+        TEXT = "HELLO WORLD"
+    }
     stages { 
         stage('Init') { 
             steps { 
                 echo "Hello, this is build number ${BUILD_NUMBER}"
+                echo "${TEXT}"
             }
         }
         // stage('Build docker image') { 
