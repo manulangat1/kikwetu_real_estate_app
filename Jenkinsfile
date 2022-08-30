@@ -2,9 +2,9 @@ def gv
 pipeline { 
 
     agent any
-    // parameters { 
-    //     choice(name: 'Version', choices:['1.1.0', '1.2.0', '1.3.0'], description:'')
-    // }
+    parameters { 
+        choice(name: 'Version', choices:['1.1.0', '1.2.0', '1.3.0'], description:'')
+    }
     stages { 
 
         stage('Init') { 
@@ -18,7 +18,7 @@ pipeline {
 
         stage('build') { 
             steps{
-                scripts { 
+                script { 
                     gv.buildApp()
                 }
             }
