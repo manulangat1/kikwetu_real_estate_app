@@ -1,14 +1,13 @@
 pipeline { 
 
     enviroment{ 
-        TEXT = "HELLO WORLD"
-        VERSION = "3.4.5"
+        NEW_VERSION = "3.4.5"
     }
     stages { 
         stage('Init') { 
             steps { 
+                echo "Building version ${NEW_VERSION}"
                 echo "Hello, this is build number ${BUILD_NUMBER}"
-                echo "${TEXT}"
             }
         }
         // stage('Build docker image') { 
