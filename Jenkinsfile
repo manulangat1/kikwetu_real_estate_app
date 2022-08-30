@@ -1,7 +1,8 @@
 pipeline { 
-    // agent any 
+
     enviroment{ 
         TEXT = "HELLO WORLD"
+        VERSION = "3.4.5"
     }
     stages { 
         stage('Init') { 
