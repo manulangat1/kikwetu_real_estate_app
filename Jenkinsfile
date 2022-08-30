@@ -4,10 +4,12 @@ pipeline {
     stages { 
 
         stage('Init') { 
-            enviroment{ 
+            
+            steps { 
+                
+                enviroment{ 
                 NEW_VERSION = "3.4.5"
             }
-            steps { 
                 echo "Building version ${NEW_VERSION}"
                 echo "Hello, this is build number ${BUILD_NUMBER}"
             }
