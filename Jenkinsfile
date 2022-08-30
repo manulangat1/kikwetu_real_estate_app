@@ -1,5 +1,5 @@
 pipeline { 
-    agent any 
+    // agent any 
     enviroment{ 
         TEXT = "HELLO WORLD"
     }
