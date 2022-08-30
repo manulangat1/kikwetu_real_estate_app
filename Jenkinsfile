@@ -3,7 +3,7 @@ pipeline {
     stages { 
         stage('Init') { 
             steps { 
-                echo "Hello, this is build number ${env.BUILD_NUMBER}"
+                echo "Hello, this is build number ${BUILD_NUMBER}"
             }
         }
         // stage('Build docker image') { 
