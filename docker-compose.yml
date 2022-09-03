@@ -1,0 +1,60 @@
+version: '3'
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: ./docker/local/django/Dockerfile
+    command: /start
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app 
+      - static_volume:/app/static_files
+      - media_volumes:/app/media_files 
+    env_file:
+      - .env
+    depends_on:
+      - db
+    networks: 
+      - estate-react
+  db:
+    image: postgres:12.0-alpine
+    networks:
+      - estate-react
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - "5434:5432"
+    env_file:
+      - .env
+  nginx: 
+    restart: always 
+    volumes:
+      - static_volume:/app/static_files
+      - media_volumes:/app/media_files
+    build:
+      context: ./docker/local/nginx/
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    networks:
+      - estate-react
+    
+    
+    
+
+volumes:
+  media_volumes:
+  static_volume:
+  postgres_data:
+networks:
+  estate-react:
+    driver: bridge
+
+    
+    

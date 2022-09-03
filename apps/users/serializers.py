@@ -19,11 +19,10 @@ class UserSerializer(serializers.ModelSerializer):
     last_name = serializers.SerializerMethodField()
     full_name = serializers.SerializerMethodField(source="get_full_name")
 
-
     class Meta:
         model = User
         fields =  [
-            'id', 'username', 'first_name', 'last_name', 'full_name', 'email', 'phone_number', 'profile_photo', 'country', 'city', 'top_seller'
+            'id', 'username', 'first_name', 'last_name', 'full_name', 'email', 'phone_number', 'profile_photo', 'country', 'city', 'top_seller', 'last_login'
         ]
                 # fields = ('id', 'username', 'first_name', 'last_name', 'email', 'is_staff', 'is_superuser', 'is_active', 'date_joined', 'last_login')
         # read_only_fields = ('id', 'date_joined', 'last_login')

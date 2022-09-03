@@ -1,5 +1,5 @@
 from .base import *
-print( env('EMAIL_PORT'))
+print( env('EMAIL_PORT'),env('EMAIL_PORT') ,env('EMAIL_HOST_USER') ,   )
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_USE_TLS = True
