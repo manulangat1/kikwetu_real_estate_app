@@ -23,6 +23,9 @@ pipeline {
             }
         }
         stage('build') { 
+            when { 
+                BRANCH_NAME == 'staging'
+            }
             steps{
                 script { 
                     gv.buildApp()
