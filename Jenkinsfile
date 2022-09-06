@@ -26,12 +26,12 @@ pipeline {
             }
         }
         stage('build') { 
-            when { 
-                expression { 
-                    BRANCH_NAME == 'staging'
-                }
-                // now
-            }
+            // when { 
+            //     expression { 
+            //         BRANCH_NAME == 'staging'
+            //     }
+            //     // now
+            // }
             steps{
                 script { 
                     // gv.buildApp()
