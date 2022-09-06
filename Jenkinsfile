@@ -35,7 +35,7 @@ pipeline {
             steps{
                 script { 
                     // gv.buildApp()
-                    buildImage()
+                    buildImage "image_name:1.0"
                 }
             }
         }
