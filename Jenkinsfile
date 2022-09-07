@@ -43,6 +43,7 @@ pipeline {
             // }
             steps{
                 script { 
+                    echo "Building the apps"
                     // gv.buildApp()
                     // buildImage "image_name:1.0"
                 }
