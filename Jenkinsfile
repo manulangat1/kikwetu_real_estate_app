@@ -77,7 +77,7 @@ pipeline {
                         sh "git status"
                         sh "git branch"
                         sh "git config --list"
-                        sh "git remote set-url https://${USER}:${$PASS}@github.com/manulangat1/kikwetu_real_estate_app.git" 
+                        sh "git remote set-url https://${USER}:${PASS}@github.com/manulangat1/kikwetu_real_estate_app.git" 
                         sh "git add ."
                         sh 'git commit -m "ci-version bump" '
                         sh "git push origin HEAD:${BRANCH_NAME} "
