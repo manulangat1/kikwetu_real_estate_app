@@ -24,7 +24,8 @@ pipeline {
             steps { 
                 script  { 
                     echo "$env.WORKSPACE"
-                    // version = readFile("${env.WORKSPACE}/version.txt")
+                    // def filePath = 
+                    version = readFile("version.txt")
                     echo "$version"
                 }
             }
