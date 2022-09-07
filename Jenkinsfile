@@ -25,7 +25,7 @@ pipeline {
                 script  { 
                     echo "$env.WORKSPACE"
                     // def filePath = 
-                    version = readFile("version.txt")
+                    version = readFile("version.txt") =~ '<version>(.+)</version>'
                     echo "$version"
                 }
             }
