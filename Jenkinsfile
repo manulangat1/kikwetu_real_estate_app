@@ -2,7 +2,7 @@
 
 @Library('jenkins-shared-library')
 def gv 
-env.WORKSPACE = pwd()
+// env.WORKSPACE = pwd()
 def version
 pipeline { 
 
@@ -23,6 +23,7 @@ pipeline {
         stage("Read version file"){
             steps { 
                 script  { 
+                    echo "$env.WORKSPACE"
                     version = readFile("${env.WORKSPACE}/version.txt")
                     echo "$version"
                 }
