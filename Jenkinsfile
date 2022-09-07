@@ -78,9 +78,10 @@ pipeline {
                         sh "git branch"
                         sh "git config --list"
                         sh 'git remote set-url origin https://$USER:$PASS@github.com/manulangat1/kikwetu_real_estate_app.git'
+                        sh "touch hhhj"
                         sh "git add ."
                         sh 'git commit -m "ci-version bump" '
-                        sh "git push origin HEAD:${BRANCH_NAME} "
+                        sh "git push origin HEAD:${BRANCH_NAME}"
                         echo "Done pushing to github"
                     }
                 }
