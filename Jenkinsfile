@@ -24,7 +24,7 @@ pipeline {
             steps { 
                 script  { 
                     echo "$env.WORKSPACE"
-                    version = readFile("${env.WORKSPACE}/version.txt")
+                    // version = readFile("${env.WORKSPACE}/version.txt")
                     echo "$version"
                 }
             }
