@@ -67,5 +67,18 @@ pipeline {
                 
             }
         }
+
+        stage('Commit version update') { 
+            steps {
+                script { 
+                    withCredentials([usernamePassword(credentialsId:'github-credentials', passwordVariable:'PASS', usernameVariable:'USER')]) { 
+                        sh "git add ."
+                        sh 'git commit -m "ci-version bump" '
+                        sh "git push origin HEAD:${BRANCH_NAME} "
+                        echo "Done pushing to github"
+                    }
+                }
+            }
+        }
     }
 }
