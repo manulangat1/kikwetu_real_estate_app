@@ -23,7 +23,8 @@ pipeline {
         stage("Read version file"){
             steps { 
                 script  { 
-                    version = readFile "${env.WORKSPACE}/version.txt"
+                    version = readFile("${env.WORKSPACE}/version.txt")
+                    echo "$version"
                 }
             }
         }
