@@ -71,7 +71,11 @@ pipeline {
         stage('Commit version update') { 
             steps {
                 script { 
-                    withCredentials([usernamePassword(credentialsId:'github-credentials', passwordVariable:'PASS', usernameVariable:'USER')]) { 
+                    withCredentials([usernamePassword(credentialsId:'github-credentials', passwordVariable:'PASS', usernameVariable:'USER')]) {
+                        sh "git status"
+                        sh "git branch"
+                        sh "git config"
+                        sh "git remote set-url https://${USER}:${$PASS}@github.com/manulangat1/kikwetu_real_estate_app.git" 
                         sh "git add ."
                         sh 'git commit -m "ci-version bump" '
                         sh "git push origin HEAD:${BRANCH_NAME} "
