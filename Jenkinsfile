@@ -26,7 +26,8 @@ pipeline {
                     echo "$env.WORKSPACE"
                     // def filePath = 
                     def matcher = readFile("version.txt") =~ '<version>(.+)</version>'
-                    echo "$matcher[0]"
+                    def imageTag = matcher[0][1]
+                    echo "$imageTag"
                     echo "$version"
                 }
             }
