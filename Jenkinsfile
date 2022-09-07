@@ -72,9 +72,11 @@ pipeline {
             steps {
                 script { 
                     withCredentials([usernamePassword(credentialsId:'github-credentials', passwordVariable:'PASS', usernameVariable:'USER')]) {
+                        sh 'git config --global user.name  "emmanuelthedeveloper@gmail.com"'
+                        sh 'git config --global user.email "manulangat1" '
                         sh "git status"
                         sh "git branch"
-                        sh "git config"
+                        sh "git config --list"
                         sh "git remote set-url https://${USER}:${$PASS}@github.com/manulangat1/kikwetu_real_estate_app.git" 
                         sh "git add ."
                         sh 'git commit -m "ci-version bump" '
