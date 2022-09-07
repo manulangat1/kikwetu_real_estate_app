@@ -2,6 +2,8 @@
 
 @Library('jenkins-shared-library')
 def gv 
+env.WORKSPACE = pwd()
+def version
 pipeline { 
 
     agent any
@@ -15,6 +17,13 @@ pipeline {
             steps { 
                 script { 
                     gv = load "script.groovy"
+                }
+            }
+        }
+        stage("Read version file"){
+            steps { 
+                script  { 
+                    version = readFile "${env.WORKSPACE}/version.txt"
                 }
             }
         }
